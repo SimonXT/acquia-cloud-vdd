@@ -3,8 +3,8 @@
 class undine_memcached::package {
 
   undine_apt::ppa { 'james-page/memcached':
-    ppa_user => 'travis-ci',
-    ppa_name => 'memcached',
+    ppa_user => 'james-page',
+    ppa_name => 'junk',
     source_list_d_filename => 'memcached-ppa-precise.list',
     source_list_d_source => 'puppet:///modules/undine_memcached/memcached-ppa-precise.list',
   }
@@ -15,6 +15,7 @@ class undine_memcached::package {
   }
 
   package { "php53-memcache":
+    require => Undine_apt::Ppa['aoe/php'],
     ensure => installed,
     notify => [ Service['apache2'], ],
   }
