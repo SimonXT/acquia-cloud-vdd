@@ -30,7 +30,6 @@ class cachefilesd (
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    source  => 'puppet:///modules/cachefilesd/cachefilesd',
     notify  => Service['cachefilesd'],
     require => Package['cachefilesd'],
   }
